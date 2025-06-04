@@ -19,6 +19,8 @@ jobs:
         distribution: 'temurin'
     - name: Compilar y ejecutar tests
       run: mvn clean verify
+    - name: Verificar existencia de reporte JaCoCo
+      run: if [ -d "target/site/jacoco/" ]; then echo "JaCoCo report exists"; else echo "JaCoCo report missing"; exit 1; fi
     - name: Subir reporte de JaCoCo
       if: always()
       uses: actions/upload-artifact@v3
