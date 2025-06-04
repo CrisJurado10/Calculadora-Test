@@ -3,22 +3,25 @@ package com.ejemplo;
 public class Calculadora {
 
     public int suma(int a, int b) {
-        return a + b;  // bien
+        return a + b;
     }
 
     public int division(int a, int b) {
-        return a / b;  // posible división por cero
+        if (b == 0) {
+            throw new ArithmeticException("División por cero no permitida");
+        }
+        return a / b;
     }
 
     public int multiplicar(int a, int b) {
-    final int resultado = a * b;
-    return resultado;
-}
-
+        final int resultado = a * b;
+        return resultado;
+    }
 
     public int metodoNoProbado(int x) {
-        if (x > 0)
-        { System.out.println("Positivo"); } // llaves mal colocadas
+        if (x > 0) {
+            System.out.println("Positivo");
+        }
         return x;
     }
 }
